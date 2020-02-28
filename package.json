@@ -1,0 +1,44 @@
+{
+  "name": "prometheus-graphql-handler",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/**/*.test.ts",
+    "test:setup": "mocha -r ts-node/register tests/setup.test.ts",
+    "start": "ts-node -r dotenv/config ./src",
+    "start:aws": "#!/bin/bash\nif [[ $STAGE = \"prod\" ]]; then \nNODE_ENV=production npm run start fi;\nelse\nNODE_ENV=dev npm run start \nfi;",
+    "start:watch": "nodemon",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-kcl": "^2.1.0",
+    "aws-sdk": "^2.620.0",
+    "bluebird": "^3.7.2",
+    "chalk": "^2.4.2",
+    "deepmerge": "^4.2.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwk-to-pem": "^2.0.3",
+    "kinesis-streams": "^0.12.0",
+    "lifion-kinesis": "^1.1.6",
+    "reflect-metadata": "^0.1.13",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.7",
+    "@types/node-fetch": "^2.5.4",
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.2.0",
+    "chai": "^4.2.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.7.4",
+    "prettier": "^1.19.1"
+  }
+}
